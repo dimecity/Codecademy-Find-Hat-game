@@ -100,6 +100,21 @@ class Field {
     field[hatLocation.y][hatLocation.x] = hat;
     return field;
   }
+  
+  playAgain() {
+        let answer = prompt('Play again? [y/n]');
+    switch (answer) {
+      case 'y':
+        const newField = new Field(Field.generateField(10, 10, 0.1));
+        newField.playGame();
+        break;
+      case 'n':
+        console.log('OK. Goodbye!');
+        break;
+      default:
+        console.log('Invalid entry');
+        this.playAgain();
+    }
 }
 
 const myfield = new Field(Field.generateField(10, 10, 0.1));
